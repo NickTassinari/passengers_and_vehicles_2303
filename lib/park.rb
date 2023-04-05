@@ -15,7 +15,6 @@ class Park
     @vehicles.flat_map {|vehicle| vehicle.passengers}
   end
 
-
   def calculate_revenue
     revenue = 0 
     @vehicles.map do |vehicle|
