@@ -58,4 +58,59 @@ RSpec.describe Park do
       expect(yellowstone.calculate_revenue).to eq(30)
     end
   end 
+
+
+  #iteration 4 
+
+  describe '#all_attendees' do 
+    it 'can list all attendees by name alphabetically' do 
+      vehicle = Vehicle.new("2001", "Honda", "Civic")
+      yellowstone = Park.new("Yellowstone", 15)
+      charlie = Passenger.new({"name" => "Charlie", "age" => 18})    
+      jude = Passenger.new({"name" => "Jude", "age" => 20})    
+      taylor = Passenger.new({"name" => "Taylor", "age" => 12})    
+      vehicle.add_passenger(taylor)    
+      vehicle.add_passenger(jude)    
+      vehicle.add_passenger(charlie)
+      yellowstone.add_vehicle(vehicle)
+    #i added passengers out of order to make them not already alphabetized 
+      expect(yellowstone.all_attendees).to eq(["Charlie", "Jude", "Taylor"])
+    end 
+  end
+
+  describe '#all_minors' do 
+    it 'can list all minors alphabetically' do 
+      vehicle = Vehicle.new("2001", "Honda", "Civic")
+      yellowstone = Park.new("Yellowstone", 15)
+      charlie = Passenger.new({"name" => "Charlie", "age" => 18})    
+      jude = Passenger.new({"name" => "Jude", "age" => 20})    
+      taylor = Passenger.new({"name" => "Taylor", "age" => 12})    
+      jenkins = Passenger.new({"name" => "Jenkins", "age" => 9})
+      vehicle.add_passenger(taylor)    
+      vehicle.add_passenger(jude)    
+      vehicle.add_passenger(charlie)
+      vehicle.add_passenger(jenkins)
+      yellowstone.add_vehicle(vehicle)
+
+      expect(yellowstone.all_minors).to eq(["Jenkins", "Taylor"])
+    end
+  end
+
+  describe '#all_adults' do 
+    it 'can list all adults alphabetically' do 
+      vehicle = Vehicle.new("2001", "Honda", "Civic")
+      yellowstone = Park.new("Yellowstone", 15)
+      charlie = Passenger.new({"name" => "Charlie", "age" => 18})    
+      jude = Passenger.new({"name" => "Jude", "age" => 20})    
+      taylor = Passenger.new({"name" => "Taylor", "age" => 12})    
+      jenkins = Passenger.new({"name" => "Jenkins", "age" => 9})
+      vehicle.add_passenger(taylor)    
+      vehicle.add_passenger(jude)    
+      vehicle.add_passenger(charlie)
+      vehicle.add_passenger(jenkins)
+      yellowstone.add_vehicle(vehicle)
+
+      expect(yellowstone.all_adults).to eq(["Charlie", "Jude"])
+    end
+  end
 end

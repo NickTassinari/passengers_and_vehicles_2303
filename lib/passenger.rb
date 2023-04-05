@@ -1,5 +1,5 @@
 class Passenger 
-  attr_reader :name, :age, :driver  
+  attr_reader :name, :age, :driver 
 
   def initialize(attributes)
     @name = attributes.fetch("name")
@@ -22,5 +22,4 @@ class Passenger
   def drive 
     @driver = true 
   end
-
 end

@@ -29,5 +29,4 @@ class Vehicle
       end
     end
   end
-  
 end

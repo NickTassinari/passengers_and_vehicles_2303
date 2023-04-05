@@ -22,4 +22,22 @@ class Park
     end
     revenue 
   end
+
+  def all_attendees
+    attendees.map do |attendee|
+      attendee.name 
+    end.sort 
+  end
+
+  def all_minors 
+    attendees.select {|attendee| !attendee.adult?}.map do |minor|
+      minor.name 
+    end.sort 
+  end 
+
+  def all_adults 
+    attendees.select {|attendee| attendee.adult?}.map do |adult|
+      adult.name 
+    end.sort 
+  end
 end
